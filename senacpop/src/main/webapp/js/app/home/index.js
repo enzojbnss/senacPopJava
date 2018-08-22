@@ -23,7 +23,7 @@ function salvar() {
 
 function finalizaCadastro(retorno) {
 	if (retorno.status) {
-		window.location = "pergunta";
+		window.location = "pergunta/index";
 	}
 }
 

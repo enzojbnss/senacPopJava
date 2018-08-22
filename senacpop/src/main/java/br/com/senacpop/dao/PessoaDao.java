@@ -7,16 +7,20 @@ import br.com.senacpop.repository.Interfaces.IPessoaRepositiry;
 import br.com.senacpop.utils.TesteExecute;
 
 public class PessoaDao {
-	
+
 	@Inject
 	private IPessoaRepositiry repository;
-	
-	public TesteExecute add(Pessoa pessoa) {
-		try {
-			return repository.add(pessoa);
-		} catch (Exception e) {
-			return new TesteExecute(e.getMessage(),false);
-		}
+
+	public TesteExecute incluir(Pessoa pessoa, String aceite) {
+		return this.repository.incluir(pessoa, aceite);
+	}
+
+	public Integer getID(Pessoa pessoa) {
+		return this.repository.getID(pessoa);
+	}
+
+	public Boolean existe(Pessoa pessoa) {
+		return this.repository.existe(pessoa);
 	}
 
 }

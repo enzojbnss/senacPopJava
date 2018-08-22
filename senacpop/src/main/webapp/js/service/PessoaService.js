@@ -3,14 +3,14 @@ var PessoaService = function() {
 	this.incluir = function(funcao) {
 		var caminho = "pessoa/add";
 		var dados = {
-			"id" : 0,
-			"nome" : pessoa.nome,
-			"sobrenome" : pessoa.sobrenome,
-			"email" : pessoa.email,
-			"dataNascimento" : pessoa.dataNascimento,
-			"cpf" : pessoa.cpf,
-			"celular" : pessoa.celular,
-			"telefone" : pessoa.telefone,
+			"pessoa.id" : 0,
+			"pessoa.nome" : pessoa.nome,
+			"pessoa.sobrenome" : pessoa.sobrenome,
+			"pessoa.email" : pessoa.email,
+			"pessoa.dataNascimento" : pessoa.dataNascimento,
+			"pessoa.cpf" : pessoa.cpf,
+			"pessoa.celular" : pessoa.celular,
+			"pessoa.telefone" : pessoa.telefone,
 			"aceite" : aceite
 		}
 		this.enviar(caminho, dados, funcao);
