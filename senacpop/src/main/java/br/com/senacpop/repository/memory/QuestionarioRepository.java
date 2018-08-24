@@ -20,13 +20,10 @@ public class QuestionarioRepository implements IQuestionarioRepository {
 		try {
 			Connection connection = FabricaDeConexao.getConexaoMySQL();
 			PreparedStatement stmt = connection.prepareStatement(sql);
-			stmt.setInt(1,idPessoa );
-			status = stmt.execute();
-			if (status) {
-				mensagem = "cadastro gravado com sucesso!";
-			}else {
-				mensagem = "falha ao gravar o cadastro! : erro não informado ";
-			}
+			stmt.setInt(1, idPessoa);
+			stmt.execute();
+			status = true;
+			mensagem = "cadastro gravado com sucesso!";
 			stmt.close();
 			connection.close();
 			connection = null;
@@ -39,7 +36,7 @@ public class QuestionarioRepository implements IQuestionarioRepository {
 			System.out.println(e.getMessage());
 			mensagem = "falha ao gravar o cadastro! : " + e.getMessage();
 		}
-        return new TesteExecute(mensagem, status);
+		return new TesteExecute(mensagem, status);
 	}
 
 	@Override
@@ -51,13 +48,10 @@ public class QuestionarioRepository implements IQuestionarioRepository {
 		try {
 			Connection connection = FabricaDeConexao.getConexaoMySQL();
 			PreparedStatement stmt = connection.prepareStatement(sql);
-			stmt.setInt(1,idPessoa );
-			status = stmt.execute();
-			if (status) {
-				mensagem = "cadastro gravado com sucesso!";
-			}else {
-				mensagem = "falha ao gravar o cadastro! : erro não informado ";
-			}
+			stmt.setInt(1, idPessoa);
+			stmt.execute();
+			status = true;
+			mensagem = "cadastro gravado com sucesso!";
 			stmt.close();
 			connection.close();
 			connection = null;
@@ -70,7 +64,7 @@ public class QuestionarioRepository implements IQuestionarioRepository {
 			System.out.println(e.getMessage());
 			mensagem = "falha ao gravar o cadastro! : " + e.getMessage();
 		}
-        return new TesteExecute(mensagem, status);
+		return new TesteExecute(mensagem, status);
 	}
 
 	@Override
@@ -81,7 +75,7 @@ public class QuestionarioRepository implements IQuestionarioRepository {
 		try {
 			Connection connection = FabricaDeConexao.getConexaoMySQL();
 			PreparedStatement stmt = connection.prepareStatement(sql);
-			stmt.setInt(1,idPessoa );
+			stmt.setInt(1, idPessoa);
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
 				id = rs.getInt("id");

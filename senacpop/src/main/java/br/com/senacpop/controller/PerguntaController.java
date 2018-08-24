@@ -14,37 +14,34 @@ import br.com.senacpop.model.Pergunta;
 
 @Controller
 public class PerguntaController {
-	
+
 	@Inject
 	private PerguntaDao dao;
-	
-	@Inject 
+
+	@Inject
 	private PessoaSession pessoaSession;
-	
-	@Inject 
+
+	@Inject
 	private LoginSession loginSession;
-	
+
 	@Inject
 	private Result result;
-	
+
 	public void index() {
-		if(this.loginSession.isLogado()) {
-			if(this.pessoaSession.isRegitred()) {
-				
-			}else {
+		if (this.loginSession.isLogado()) {
+			if (this.pessoaSession.isRegitred()) {
+
+			} else {
 				this.result.forwardTo(IndexController.class).index();
 			}
-		}else {
+		} else {
 			this.result.forwardTo(LoginController.class).index();
 		}
 	}
-	
-	
+
 	public void lista() {
 		List<Pergunta> perguntas = this.dao.getLista();
 		this.result.use(Results.json()).withoutRoot().from(perguntas).serialize();
 	}
-	
-	
 
 }

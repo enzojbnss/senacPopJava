@@ -5,8 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import javax.inject.Inject;
-
 import br.com.senacpop.jdbc.FabricaDeConexao;
 import br.com.senacpop.model.Pessoa;
 import br.com.senacpop.repository.Interfaces.IPessoaRepositiry;
@@ -14,9 +12,7 @@ import br.com.senacpop.utils.TesteExecute;
 
 public class PessoaRepository implements IPessoaRepositiry {
 
-	@Inject
-	Pessoa pessoa;
-
+	
 	@Override
 	public TesteExecute incluir(Pessoa pessoa, String aceite) {
 		// TODO Auto-generated method stub
@@ -92,7 +88,7 @@ public class PessoaRepository implements IPessoaRepositiry {
 	}
 
 	@Override
-	public Boolean existe(Pessoa $pessoa) {
+	public Boolean existe(Pessoa pessoa) {
 		// TODO Auto-generated method stub
 		String sql = "SELECT count(*) valor FROM pessoa where nome = ? and sobrenome  = ? and   email = ? and   cpf = ? and  celular = ?  and   telefone = ? ";
 		Boolean status = false;
@@ -105,10 +101,9 @@ public class PessoaRepository implements IPessoaRepositiry {
 			stmt.setString(4, pessoa.getCpf());
 			stmt.setString(5, pessoa.getCelular());
 			stmt.setString(6, pessoa.getTelefone());
-			stmt.setString(7, pessoa.getTelefone());
-			if (pessoa.getDataNascimento() != "nf") {
-				stmt.setString(8, pessoa.getDataNascimento());
-			}
+			//if (pessoa.getDataNascimento() != "nf") {
+			//	stmt.setString(8, pessoa.getDataNascimento());
+			//}
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
 				status = (rs.getInt("valor") > 0);

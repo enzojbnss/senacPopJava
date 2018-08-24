@@ -32,10 +32,12 @@ public class PessoaController {
 		}
 		this.result.use(Results.json()).withoutRoot().from(execute).serialize();
 	}
-	
+
 	public void getIdAtual() {
-		if(this.pessoaSession.isRegitred())this.result.use(Results.json()).withoutRoot().from(this.pessoaSession.getPessoa()).serialize();
-		else this.result.use(Results.json()).withoutRoot().from(0).serialize();
+		if (this.pessoaSession.isRegitred())
+			this.result.use(Results.json()).withoutRoot().from(this.pessoaSession.getPessoa()).serialize();
+		else
+			this.result.use(Results.json()).withoutRoot().from(0).serialize();
 	}
 
 }

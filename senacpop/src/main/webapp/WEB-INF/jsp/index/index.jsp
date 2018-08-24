@@ -83,7 +83,7 @@
 	width: 6%;
 }
 </style>
-<script type="text/javascript" src="js//jquery/jquery.mask.js"></script>
+<script type="text/javascript" src="js/jquery/jquery.mask.js"></script>
 <script type="text/javascript" src="js/service/PessoaService.js"></script>
 <script type="text/javascript" src="js/componente/control/CheckBox.js"></script>
 <script type="text/javascript" src="js/app/home/index.js"></script>

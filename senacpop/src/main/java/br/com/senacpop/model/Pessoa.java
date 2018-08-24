@@ -1,7 +1,18 @@
 package br.com.senacpop.model;
 
-public class Pessoa {
+import java.io.Serializable;
 
+import javax.enterprise.context.SessionScoped;
+import javax.inject.Named;
+
+@SessionScoped
+@Named("pessoa")
+public class Pessoa implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1037334926599591461L;
 	private Integer id;
 	private String nome;
 	private String sobrenome;
