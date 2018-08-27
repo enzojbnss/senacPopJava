@@ -82,6 +82,7 @@
 </style>
 <script type="text/javascript" src="../js/jquery/jquery.js"></script>
 <script type="text/javascript" src="../js/knockout.js"></script>
+<script type="text/javascript" src="../js/service/PessoaService.js"></script>
 <script type="text/javascript" src="../js/service/PerguntaService.js"></script>
 <script type="text/javascript"
 	src="../js/service/QuestionarioService.js"></script>

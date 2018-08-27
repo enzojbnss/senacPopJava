@@ -15,6 +15,12 @@ var PessoaService = function() {
 		}
 		this.enviar(caminho, dados, funcao);
 	}
+	
+	this.getIdAtual = function(funcao) {
+		var caminho = "../pessoa/getIdAtual";
+		var dados = {}
+		this.enviar(caminho, dados, funcao);
+	}
 
 	this.enviar = function(caminho, dados, funcao) {
 		$.ajax({

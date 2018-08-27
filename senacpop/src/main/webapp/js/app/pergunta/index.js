@@ -1,3 +1,4 @@
+var idPessoa = 0;
 var service = "";
 var perguntas = []
 var perguntaAtual = 0;
@@ -6,6 +7,7 @@ var idResposta = 0;
 var valorResposta = 0;
 $(function() {
 	$("#dvAreas").hide();
+	getIdAtual();
 	service = new PerguntaService();
 	service.getLista("carregaPerguntas");
 	service = null;
@@ -21,7 +23,6 @@ $(function() {
 	$(document).on('click', "#btnVoltarQuestao", function() {
 		voltarPergunta();
 	});
-	
 
 	areaViewModel = new AreaListViewModel();
 	ko.applyBindings(areaViewModel);
@@ -31,8 +32,16 @@ function voltar() {
 	window.location = "";
 }
 
+function getIdAtual() {
+	var pessoaService = new PessoaService();
+	pessoaService.getIdAtual("retornaID")
+}
 
-function voltarPergunta(){
+function retornaID(id) {
+	idPessoa = id;
+}
+
+function voltarPergunta() {
 	perguntaAtual--;
 	exibiPergunta();
 }
@@ -101,8 +110,8 @@ function finalizaGravacao(retorno) {
 }
 
 function exibiPergunta() {
-	if(perguntaAtual == 0){
-		
+	if (perguntaAtual == 0) {
+
 	}
 	$("#txtPergunta").text(perguntas[perguntaAtual].texto);
 	if (perguntaAtual == (perguntas.length - 1)) {
@@ -125,10 +134,10 @@ function finalizaQuestionario(retorno) {
 function carregarAreas(retorno) {
 	contador = 0;
 	$.each(retorno, function(index, area) {
-		if(contador == 0){
-			areaViewModel.addTask(area);	
+		if (contador == 0) {
+			areaViewModel.addTask(area);
 			contador++;
-		}		
+		}
 	});
 	$("#dvPerguntas").hide();
 	$("#dvAreas").show();

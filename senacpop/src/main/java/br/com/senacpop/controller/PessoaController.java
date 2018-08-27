@@ -28,6 +28,9 @@ public class PessoaController {
 			execute = new TesteExecute("Cadastrado com Sucesso", true);
 		}
 		if (execute.getStatus()) {
+			Integer idPessoa = this.dao.getID(pessoa);
+			System.out.println("id da  pessoa : "+ idPessoa);
+			pessoa.setId(idPessoa);
 			this.pessoaSession.registrar(pessoa);
 		}
 		this.result.use(Results.json()).withoutRoot().from(execute).serialize();
@@ -35,7 +38,7 @@ public class PessoaController {
 
 	public void getIdAtual() {
 		if (this.pessoaSession.isRegitred())
-			this.result.use(Results.json()).withoutRoot().from(this.pessoaSession.getPessoa()).serialize();
+			this.result.use(Results.json()).withoutRoot().from(this.pessoaSession.getIDPessoa()).serialize();
 		else
 			this.result.use(Results.json()).withoutRoot().from(0).serialize();
 	}

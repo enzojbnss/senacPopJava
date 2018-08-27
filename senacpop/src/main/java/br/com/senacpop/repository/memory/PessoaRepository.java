@@ -12,7 +12,6 @@ import br.com.senacpop.utils.TesteExecute;
 
 public class PessoaRepository implements IPessoaRepositiry {
 
-	
 	@Override
 	public TesteExecute incluir(Pessoa pessoa, String aceite) {
 		// TODO Auto-generated method stub
@@ -58,17 +57,19 @@ public class PessoaRepository implements IPessoaRepositiry {
 
 	@Override
 	public Integer getID(Pessoa pessoa) {
-		String sql = "SELECT idpessoa id FROM pessoa where nome = ? and sobrenome  = ? and   email = ? and   cpf = ? and  celular = ?  and   telefone = ? ";
+		String sql = "SELECT idpessoa id FROM pessoa where nome = ? and   email = ? and   telefone = ? ;";
+		System.out.println("SELECT idpessoa id FROM pessoa where nome = '" + pessoa.getNome() + "' and   email = '"
+				+ pessoa.getEmail() + "' and   telefone = '" + pessoa.getTelefone() + "' ;");
 		Integer id = 0;
 		try {
 			Connection connection = FabricaDeConexao.getConexaoMySQL();
 			PreparedStatement stmt = connection.prepareStatement(sql);
 			stmt.setString(1, pessoa.getNome());
-			stmt.setString(2, pessoa.getSobrenome());
-			stmt.setString(3, pessoa.getEmail());
-			stmt.setString(4, pessoa.getCpf());
-			stmt.setString(5, pessoa.getCelular());
-			stmt.setString(6, pessoa.getTelefone());
+			stmt.setString(2, pessoa.getEmail());
+			stmt.setString(3, pessoa.getTelefone());
+			// stmt.setString(4, pessoa.getEmail());
+			// stmt.setString(5, pessoa.getCpf());
+			// stmt.setString(6, pessoa.getCelular());
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
 				id = rs.getInt("id");
@@ -90,20 +91,20 @@ public class PessoaRepository implements IPessoaRepositiry {
 	@Override
 	public Boolean existe(Pessoa pessoa) {
 		// TODO Auto-generated method stub
-		String sql = "SELECT count(*) valor FROM pessoa where nome = ? and sobrenome  = ? and   email = ? and   cpf = ? and  celular = ?  and   telefone = ? ";
+		String sql = "SELECT count(*) valor FROM pessoa where nome = ? and   email = ?  and   telefone = ? ";
 		Boolean status = false;
 		try {
 			Connection connection = FabricaDeConexao.getConexaoMySQL();
 			PreparedStatement stmt = connection.prepareStatement(sql);
 			stmt.setString(1, pessoa.getNome());
-			stmt.setString(2, pessoa.getSobrenome());
-			stmt.setString(3, pessoa.getEmail());
-			stmt.setString(4, pessoa.getCpf());
-			stmt.setString(5, pessoa.getCelular());
-			stmt.setString(6, pessoa.getTelefone());
-			//if (pessoa.getDataNascimento() != "nf") {
-			//	stmt.setString(8, pessoa.getDataNascimento());
-			//}
+			stmt.setString(2, pessoa.getEmail());
+			stmt.setString(3, pessoa.getTelefone());
+			// stmt.setString(4, pessoa.getEmail());
+			// stmt.setString(5, pessoa.getCpf());
+			// stmt.setString(6, pessoa.getCelular());
+			// if (pessoa.getDataNascimento() != "nf") {
+			// stmt.setString(8, pessoa.getDataNascimento());
+			// }
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
 				status = (rs.getInt("valor") > 0);
