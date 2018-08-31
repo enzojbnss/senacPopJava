@@ -27,7 +27,7 @@
 
 </head>
 <body
-	style="background: url('img/Background.png'); background-repeat: no-repeat; background-size: 165%">
+	style="background: url('img/Background.png'); background-repeat: no-repeat; ">
 	
 	
 	

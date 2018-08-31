@@ -10,7 +10,7 @@ public class AcessoDao {
 	private IAcessoRepository repository;
 	
 	public Boolean logar(String login, String senha) {
-		return repository.logar(login, senha);
+		return this.repository.logar(login, senha);
 	}
 
 }

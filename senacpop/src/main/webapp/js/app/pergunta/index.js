@@ -99,6 +99,7 @@ function defineResposta(retorno) {
 	valor = strValor.replace('"', '');
 	valor = valor.replace('"', '');
 	idResposta = parseInt(valor);
+	alert(idResposta);
 	service.add("finalizaGravacao");
 }
 

@@ -21,6 +21,7 @@ public class QuestionarioController {
 	@Inject
 	private Result result;
 
+	
 	public void add(Integer idPessoa) {
 		TesteExecute execute = this.dao.inativaAnteriores(idPessoa);
 		if (execute.getStatus()) {

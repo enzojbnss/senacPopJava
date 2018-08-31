@@ -1,7 +1,7 @@
 var RespostaService = function() {
 
 	this.getID = function(funcao) {
-		var caminho = "resposta/getID";
+		var caminho = "../resposta/getID";
 		var dados = {
 			"idPergunta" : perguntas[perguntaAtual].id,
 			"idResposta" : valorResposta
@@ -10,7 +10,7 @@ var RespostaService = function() {
 	}
 
 	this.add = function(funcao) {
-		var caminho = "resposta/add";
+		var caminho = "../resposta/add";
 		var dados = {
 			"idPergunta" : perguntas[perguntaAtual].id,
 			"idQuestionario" : idQuestionario,

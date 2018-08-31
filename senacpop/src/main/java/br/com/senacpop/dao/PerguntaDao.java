@@ -10,10 +10,10 @@ import br.com.senacpop.repository.Interfaces.IPerguntaRepository;
 public class PerguntaDao {
 
 	@Inject
-	IPerguntaRepository repository;
+	private IPerguntaRepository repository;
 
 	public List<Pergunta> getLista() {
-		return repository.getLista();
+		return this.repository.getLista();
 	}
 
 }

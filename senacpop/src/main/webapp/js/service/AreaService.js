@@ -1,7 +1,7 @@
 var AreaService = function(){
 	
 	this.getLista = function(funcao) {
-		var caminho = "area/lista"
+		var caminho = "../area/lista"
 		var dados = {
 				"idQuestionario" : idQuestionario
 		}

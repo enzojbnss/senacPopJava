@@ -1,27 +1,31 @@
 var QuestionarioService = function() {
 
 	this.add = function(funcao) {
-		var caminho = "questionario/add";
+		var caminho = "../questionario/add";
 		var dados = {
-				"idPessoa" : idPessoa
+			"idPessoa" : idPessoa
 		}
 		this.enviar(caminho, dados, funcao);
 	}
-	
+
 	this.encerraQuestionario = function(funcao) {
-		var caminho = "questionario/encerraQuestionario";
+		var caminho = "../questionario/encerraQuestionario";
 		var dados = {
-				"idQuestionario" : idQuestionario
+			"idQuestionario" : idQuestionario,
+			"autoIntencao" : 1,
+			"idResposta" : 1
 		}
 		this.enviar(caminho, dados, funcao);
 	}
-	
+
 	this.getID = function(funcao) {
-		var caminho = "questionario/getID"
-		this.enviar(caminho, {}, funcao);
+		var caminho = "../questionario/getID";
+		var dados = {
+			"idPessoa" : idPessoa
+		}
+		this.enviar(caminho, dados, funcao);
 	}
-	
-	
+
 	this.enviar = function(caminho, dados, funcao) {
 		$.ajax({
 			method : 'POST',
@@ -30,9 +34,9 @@ var QuestionarioService = function() {
 				withCredentials : true
 			},
 			data : dados
-		}).done(function (retorno) {
+		}).done(function(retorno) {
 			eval(funcao + "(retorno)");
 		})
-	}	
+	}
 
 }

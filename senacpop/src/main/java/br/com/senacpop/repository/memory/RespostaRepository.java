@@ -77,12 +77,9 @@ public class RespostaRepository implements IRespostaRepository {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 			stmt.setInt(1,idQuestionario );
 			stmt.setInt(2,idResposta );
-			status = stmt.execute();
-			if (status) {
-				mensagem = "cadastro gravado com sucesso!";
-			}else {
-				mensagem = "falha ao gravar o cadastro! : erro não informado ";
-			}
+			stmt.execute();
+			status = true;
+			mensagem = "cadastro gravado com sucesso!";
 			stmt.close();
 			connection.close();
 			connection = null;
@@ -109,12 +106,9 @@ public class RespostaRepository implements IRespostaRepository {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 			stmt.setInt(1,idQuestionario );
 			stmt.setInt(2,idRespostaQuestionario );
-			status = stmt.execute();
-			if (status) {
-				mensagem = "cadastro gravado com sucesso!";
-			}else {
-				mensagem = "falha ao gravar o cadastro! : erro não informado ";
-			}
+			stmt.execute();
+			status = true;
+			mensagem = "cadastro gravado com sucesso!";
 			stmt.close();
 			connection.close();
 			connection = null;

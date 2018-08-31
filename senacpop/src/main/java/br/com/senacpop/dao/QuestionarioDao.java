@@ -15,7 +15,7 @@ public class QuestionarioDao  {
 	}
 
 	public TesteExecute inativaAnteriores(Integer idPessoa) {
-		return this.inativaAnteriores(idPessoa) ;
+		return this.repository.inativaAnteriores(idPessoa) ;
 	}
 
 	public Integer getID(Integer idPessoa) {
