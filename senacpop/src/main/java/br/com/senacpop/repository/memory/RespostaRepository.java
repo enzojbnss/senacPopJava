@@ -66,7 +66,6 @@ public class RespostaRepository implements IRespostaRepository {
 		}
 	}
 
-	
 	public TesteExecute incluir(Integer idQuestionario, Integer idResposta) {
 		// TODO Auto-generated method stub
 		String mensagem = "";
@@ -75,8 +74,8 @@ public class RespostaRepository implements IRespostaRepository {
 		try {
 			Connection connection = FabricaDeConexao.getConexaoMySQL();
 			PreparedStatement stmt = connection.prepareStatement(sql);
-			stmt.setInt(1,idQuestionario );
-			stmt.setInt(2,idResposta );
+			stmt.setInt(1, idQuestionario);
+			stmt.setInt(2, idResposta);
 			stmt.execute();
 			status = true;
 			mensagem = "cadastro gravado com sucesso!";
@@ -92,7 +91,7 @@ public class RespostaRepository implements IRespostaRepository {
 			System.out.println(e.getMessage());
 			mensagem = "falha ao gravar o cadastro! : " + e.getMessage();
 		}
-        return new TesteExecute(mensagem, status);
+		return new TesteExecute(mensagem, status);
 	}
 
 	@Override
@@ -104,8 +103,8 @@ public class RespostaRepository implements IRespostaRepository {
 		try {
 			Connection connection = FabricaDeConexao.getConexaoMySQL();
 			PreparedStatement stmt = connection.prepareStatement(sql);
-			stmt.setInt(1,idQuestionario );
-			stmt.setInt(2,idRespostaQuestionario );
+			stmt.setInt(1, idQuestionario);
+			stmt.setInt(2, idRespostaQuestionario);
 			stmt.execute();
 			status = true;
 			mensagem = "cadastro gravado com sucesso!";
@@ -121,21 +120,21 @@ public class RespostaRepository implements IRespostaRepository {
 			System.out.println(e.getMessage());
 			mensagem = "falha ao gravar o cadastro! : " + e.getMessage();
 		}
-        return new TesteExecute(mensagem, status);
+		return new TesteExecute(mensagem, status);
 	}
 
 	@Override
 	public Integer getIDRespotaQuestionario(Integer idPergunta, Integer idQuestionario) {
 		// TODO Auto-generated method stub
 		String sql = "SELECT idrespotaquestionario id FROM testevocacional.respotaquestionario "
-		+ "INNER JOIN perguntarespota USING(idPerguntaRespota) "
-		+ "WHERE idPergunta = ? AND idQuestionario = ?; ";
+				+ "INNER JOIN perguntarespota USING(idPerguntaRespota) "
+				+ "WHERE idPergunta = ? AND idQuestionario = ?; ";
 		Integer id = 0;
 		try {
 			Connection connection = FabricaDeConexao.getConexaoMySQL();
 			PreparedStatement stmt = connection.prepareStatement(sql);
-			stmt.setInt(1,idPergunta );
-			stmt.setInt(2,idQuestionario );
+			stmt.setInt(1, idPergunta);
+			stmt.setInt(2, idQuestionario);
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
 				id = rs.getInt("id");
@@ -158,8 +157,8 @@ public class RespostaRepository implements IRespostaRepository {
 	public Boolean existe(Integer idPergunta, Integer idQuestionario) {
 		// TODO Auto-generated method stub
 		String sql = "SELECT Count(idrespotaquestionario) valor FROM testevocacional.respotaquestionario "
-		+ "INNER JOIN perguntarespota USING(idPerguntaRespota) "
-		+ "WHERE idPergunta = ? AND idQuestionario = ?; ";
+				+ "INNER JOIN perguntarespota USING(idPerguntaRespota) "
+				+ "WHERE idPergunta = ? AND idQuestionario = ?; ";
 		Boolean status = false;
 		try {
 			Connection connection = FabricaDeConexao.getConexaoMySQL();
@@ -187,13 +186,13 @@ public class RespostaRepository implements IRespostaRepository {
 	@Override
 	public Integer getID(Integer idPergunta, Integer idResposta) {
 		// TODO Auto-generated method stub
-		String sql = "SELECT idPerguntaRespota idr FROM perguntarespota where idPergunta = ? and idResposta = ?  ";
+		String sql = "SELECT idPerguntaRespota id FROM perguntarespota where idPergunta = ? and idResposta = ?  ";
 		Integer id = 0;
 		try {
 			Connection connection = FabricaDeConexao.getConexaoMySQL();
 			PreparedStatement stmt = connection.prepareStatement(sql);
-			stmt.setInt(1,idPergunta );
-			stmt.setInt(2,idPergunta );
+			stmt.setInt(1, idPergunta);
+			stmt.setInt(2, idResposta);
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
 				id = rs.getInt("id");

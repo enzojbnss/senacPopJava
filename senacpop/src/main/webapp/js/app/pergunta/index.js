@@ -29,7 +29,7 @@ $(function() {
 });
 
 function voltar() {
-	window.location = "";
+	window.location = "../";
 }
 
 function getIdAtual() {
@@ -99,7 +99,6 @@ function defineResposta(retorno) {
 	valor = strValor.replace('"', '');
 	valor = valor.replace('"', '');
 	idResposta = parseInt(valor);
-	alert(idResposta);
 	service.add("finalizaGravacao");
 }
 
@@ -111,10 +110,12 @@ function finalizaGravacao(retorno) {
 }
 
 function exibiPergunta() {
-	if (perguntaAtual == 0) {
-
-	}
 	$("#txtPergunta").text(perguntas[perguntaAtual].texto);
+	if (perguntaAtual == 0) {
+		$("#btnVoltarQuestao").css("opacity", 0);
+	} else {
+		$("#btnVoltarQuestao").css("opacity", 1);
+	}
 	if (perguntaAtual == (perguntas.length - 1)) {
 		$("#btnPositivo").css("opacity", 0);
 		$("#btnNegativo").css("opacity", 0);
@@ -135,7 +136,7 @@ function finalizaQuestionario(retorno) {
 function carregarAreas(retorno) {
 	contador = 0;
 	$.each(retorno, function(index, area) {
-		if (contador == 0) {
+		if (contador <= 1) {
 			areaViewModel.addTask(area);
 			contador++;
 		}

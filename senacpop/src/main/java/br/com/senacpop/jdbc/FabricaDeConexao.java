@@ -10,7 +10,7 @@ public class FabricaDeConexao {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			return DriverManager.getConnection(
-					"jdbc:mysql://localhost/testevocacional", "root", "Renato1500");
+					"jdbc:mysql://localhost/senacpop", "root", "Renato1500");
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}

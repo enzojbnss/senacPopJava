@@ -74,9 +74,22 @@
 	font-size: 1.5em;
 }
 
+body {
+	background: url('../img/Background.png');
+	background-size : 100% 100%;
+	background-repeat: no-repeat;
+}
+
+.logo {
+	width: 20%;
+}
+
 @media ( max-width : 800px) {
 	.jumbotron 	img {
 		width: 15%;
+	}
+	.logo {
+		width: 10%;
 	}
 }
 </style>
@@ -91,11 +104,10 @@
 <script type="text/javascript" src="../js/app/pergunta/index.js"></script>
 <title>Programa de orientação profissional</title>
 </head>
-<body
-	style="background: url('../img/Background.png'); background-repeat: no-repeat">
+<body>
 	<div id="logo" class="container"
 		style="text-align: center; margin-top: 35px;">
-		<img alt="" src="../img/logoSemfundo.png" style="width: 30%;"> <br>
+		<img class="logo" alt="" src="../img/logoSemfundo.png" > <br>
 		<label style="color: #ffffff; font-size: 1.7em">Esse quiz
 			serve para te ajudar a escolher qual área seguir, de acordo com a sua
 			personalidade, ok? Não é um teste vocacional.</label>
@@ -122,7 +134,7 @@
 			</div>
 		</div>
 		<div id="dvAreas" class="jumbotron">
-			<div>VocÃª se enquadra no seguinte perfil:</div>
+			<div>Você se enquadra no seguinte perfil:</div>
 			<div class="pergunta">
 				<table data-bind="foreach: areas">
 					<tr>

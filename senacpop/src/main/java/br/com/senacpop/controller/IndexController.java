@@ -20,13 +20,13 @@ public class IndexController {
 
 	@Path("/")
 	public void index() {
-		if (loginSession.isLogado()) {
+		//if (loginSession.isLogado()) {
 			if (this.pessoaSession.isRegitred()) {
 				this.pessoaSession.remover();
 			}
-		}else {
-			this.result.forwardTo(LoginController.class).index();
-		}
+		//}else {
+			//this.result.forwardTo(LoginController.class).index();
+		//}
 	}
 
 }

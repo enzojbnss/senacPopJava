@@ -124,12 +124,9 @@ public class IntencaoReporitory implements IIntencaoRepository {
 			stmt.setInt(1, idQuestionario);
 			stmt.setInt(2, idResposta);
 			stmt.setInt(3, peso);
-			status = stmt.execute();
-			if (status) {
-				mensagem = "cadastro gravado com sucesso!";
-			} else {
-				mensagem = "falha ao gravar o cadastro! : erro não informado ";
-			}
+			stmt.execute();
+			status = true;
+			mensagem = "cadastro gravado com sucesso!";
 			stmt.close();
 			connection.close();
 			connection = null;
@@ -158,12 +155,9 @@ public class IntencaoReporitory implements IIntencaoRepository {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 			stmt.setInt(1, idResposta);
 			stmt.setInt(2, idQuestionario);
-			status = stmt.execute();
-			if (status) {
-				mensagem = "cadastro gravado com sucesso!";
-			} else {
-				mensagem = "falha ao gravar o cadastro! : erro não informado ";
-			}
+			stmt.execute();
+			status = true;
+			mensagem = "cadastro gravado com sucesso!";
 			stmt.close();
 			connection.close();
 			connection = null;

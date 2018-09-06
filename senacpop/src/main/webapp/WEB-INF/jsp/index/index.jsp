@@ -35,7 +35,7 @@
 	background: #a7c7dc;
 	text-align: center;
 	font-size: 1.7em;
-	width: 100%;
+	width: 100% 100%;
 	height: 300px;
 	margin-left: 0%;
 	opacity: 0.55;
@@ -45,12 +45,30 @@
 	width: 6%;
 }
 
+body {
+	background: url('img/Background.png');
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+}
+
+.logo {
+	width: 20%;
+}
+
 @media ( max-width : 800px) {
+	body {
+		background: url('img/Background.png');
+		background-size: 100% 110%;
+		background-repeat: no-repeat;
+	}
 	.jumbotron {
 		height: 300px;
 	}
 	.jumbotron 	img {
-		width: 3%;
+		width: 2%;
+	}
+	.logo {
+		width: 10%;
 	}
 }
 
@@ -110,14 +128,13 @@
 <title>Programa de orientação profissional</title>
 
 </head>
-<body
-	style="background: url('img/Background.png'); background-repeat: no-repeat;">
+<body>
 
 
 
 	<div id="logo" class="container"
 		style="text-align: center; margin-top: 35px;">
-		<img alt="" src="img/logoSemfundo.png" style="width: 30%;"> <br>
+		<img class="logo" alt="" src="img/logoSemfundo.png" > <br>
 		<label style="color: #ffffff; font-size: 1.7em">Esse quiz
 			serve para te ajudar a escolher qual área seguir, de acordo com a sua
 			personalidade, ok? Não é um teste vocacional.</label>

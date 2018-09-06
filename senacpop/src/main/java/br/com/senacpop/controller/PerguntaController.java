@@ -28,15 +28,15 @@ public class PerguntaController {
 	private Result result;
 
 	public void index() {
-		if (this.loginSession.isLogado()) {
+		//if (this.loginSession.isLogado()) {
 			if (this.pessoaSession.isRegitred()) {
 
 			} else {
-				this.result.forwardTo(IndexController.class).index();
+				this.result.redirectTo("/");
 			}
-		} else {
-			this.result.forwardTo(LoginController.class).index();
-		}
+		//} else {
+		//	this.result.redirectTo("/");
+		//}
 	}
 
 	public void lista() {
