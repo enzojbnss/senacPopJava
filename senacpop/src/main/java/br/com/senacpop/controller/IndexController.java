@@ -4,8 +4,6 @@ import javax.inject.Inject;
 
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Path;
-import br.com.caelum.vraptor.Result;
-import br.com.senacpop.infra.session.LoginSession;
 import br.com.senacpop.infra.session.PessoaSession;
 
 @Controller
@@ -13,10 +11,10 @@ public class IndexController {
 
 	@Inject
 	private PessoaSession pessoaSession;
-	@Inject
+	/*@Inject
 	private LoginSession loginSession;
 	@Inject
-	private Result result;
+	private Result result;*/
 
 	@Path("/")
 	public void index() {

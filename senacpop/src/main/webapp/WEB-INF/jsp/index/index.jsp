@@ -62,7 +62,7 @@ body {
 		background-repeat: no-repeat;
 	}
 	.jumbotron {
-		height: 300px;
+		height: 250px;
 	}
 	.jumbotron 	img {
 		width: 2%;

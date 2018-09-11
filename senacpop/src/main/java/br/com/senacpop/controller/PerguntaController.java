@@ -8,7 +8,6 @@ import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.view.Results;
 import br.com.senacpop.dao.PerguntaDao;
-import br.com.senacpop.infra.session.LoginSession;
 import br.com.senacpop.infra.session.PessoaSession;
 import br.com.senacpop.model.Pergunta;
 
@@ -21,8 +20,8 @@ public class PerguntaController {
 	@Inject
 	private PessoaSession pessoaSession;
 
-	@Inject
-	private LoginSession loginSession;
+	/*@Inject
+	private LoginSession loginSession;*/
 
 	@Inject
 	private Result result;

@@ -17,7 +17,10 @@ public class PessoaRepository implements IPessoaRepositiry {
 		// TODO Auto-generated method stub
 		String mensagem = "";
 		String sql = "";
-		Boolean isdata = pessoa.getDataNascimento().equals("nf");
+		Boolean isdata = false;
+		if (pessoa.getDataNascimento() != null) {
+			isdata = pessoa.getDataNascimento().equals("nf");
+		}
 		Boolean status = false;
 		if (isdata == true) {
 			sql = "INSERT INTO pessoa (nome,sobrenome,email,cpf,celular,telefone,aceite) VALUES (?,?,?,?,?,?,?);";

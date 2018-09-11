@@ -21,6 +21,7 @@ public class PessoaController {
 	PessoaSession pessoaSession;
 
 	public void add(Pessoa pessoa, String aceite) {
+		System.out.println(pessoa.getNome());
 		TesteExecute execute;
 		if (dao.existe(pessoa) != true) {
 			execute = this.dao.incluir(pessoa, aceite);
