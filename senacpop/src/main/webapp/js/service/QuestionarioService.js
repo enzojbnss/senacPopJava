@@ -17,6 +17,21 @@ var QuestionarioService = function() {
 		}
 		this.enviar(caminho, dados, funcao);
 	}
+	
+	this.geraQuestionario = function(funcao) {
+		var resposta = [];
+		resposta[0] = 1;
+		resposta[1] = 2;
+		resposta[3] = 1;
+		resposta[4] = 2;
+		resposta[5] = 2;
+		var caminho = "../questionario/geraQuestionario";
+		var dados = {
+			"respostas" : resposta
+		}
+		this.enviar(caminho, dados, funcao);
+	}
+	
 
 	this.getID = function(funcao) {
 		var caminho = "../questionario/getID";

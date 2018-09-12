@@ -1,6 +1,7 @@
 var idPessoa = 0;
 var service = "";
-var perguntas = []
+var perguntas = [];
+var respostas = [];
 var perguntaAtual = 0;
 var idQuestionario = 0;
 var idResposta = 0;
@@ -55,19 +56,10 @@ function responder(valor) {
 	idQuestionario
 	if (valor) {
 		valorResposta = 1;
-		if (idQuestionario == 0) {
-			gerarQuestionario();
-		} else {
-			addResposta();
-		}
 	} else {
 		valorResposta = 2;
-		if (idQuestionario == 0) {
-			gerarQuestionario();
-		} else {
-			addResposta();
-		}
 	}
+	respostas[perguntaAtual] = valorResposta
 }
 
 function gerarQuestionario() {
@@ -81,33 +73,9 @@ function finalizaGeracao(retorno) {
 	}
 }
 
-function defineIDQuestionario(retorno) {
-	strValor = new String(retorno);
-	valor = strValor.replace('"', '');
-	valor = valor.replace('"', '');
-	idQuestionario = parseInt(valor);
-	service = new RespostaService();
-	addResposta();
-}
 
-function addResposta() {
-	service.getID("defineResposta");
-}
 
-function defineResposta(retorno) {
-	strValor = new String(retorno);
-	valor = strValor.replace('"', '');
-	valor = valor.replace('"', '');
-	idResposta = parseInt(valor);
-	service.add("finalizaGravacao");
-}
 
-function finalizaGravacao(retorno) {
-	if (retorno.status) {
-		perguntaAtual++;
-		exibiPergunta();
-	}
-}
 
 function exibiPergunta() {
 	$("#txtPergunta").text(perguntas[perguntaAtual].texto);
@@ -162,3 +130,14 @@ function AreaListViewModel() {
 		}));
 	};
 }
+
+
+function teste(){
+	service = new QuestionarioService();
+	service.geraQuestionario("fteste");
+}
+
+function fteste(retorno){
+	alert(retorno);
+}
+
